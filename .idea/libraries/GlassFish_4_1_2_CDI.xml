@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="GlassFish 4.1.2 CDI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/GlassFish 4.1.2 CDI/javax.inject.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/GlassFish 4.1.2 CDI/weld-integration.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/GlassFish 4.1.2 CDI/weld-osgi-bundle.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

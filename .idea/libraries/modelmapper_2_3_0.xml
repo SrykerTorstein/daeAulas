@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="modelmapper-2.3.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/modelmapper-2.3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AcademicsManagement.iml" filepath="$PROJECT_DIR$/AcademicsManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AcademicsManagement-ejb/AcademicsManagement-ejb.iml" filepath="$PROJECT_DIR$/AcademicsManagement-ejb/AcademicsManagement-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AcademicsManagement-war/AcademicsManagement-war.iml" filepath="$PROJECT_DIR$/AcademicsManagement-war/AcademicsManagement-war.iml" />
+    </modules>
+  </component>
+</project>

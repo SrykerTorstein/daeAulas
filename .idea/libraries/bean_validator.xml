@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="bean-validator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/bean-validator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/bean-validator-cdi.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
