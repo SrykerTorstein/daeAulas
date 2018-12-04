@@ -5,46 +5,46 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Academic Management</title>
+        <title>Software Configuration Management</title>
     </h:head>
     <h:body>
-        <h3>STUDENTS</h3>
+        <h3>CLIENTS</h3>  <!-- isto tem de ir para uma pagina admin-only -->
         <p:dataTable
-            var="student"
-            summary="List of all students"
-            value="#{administratorManager.allStudents}"
+            var="client"
+            summary="List of all clients"
+            value="#{administratorManager.allClients}"
             rules="all"
             cellpadding="5">
 
             <p:column headerText = "Username">
-                <h:outputText value="#{student.username}" />
+                <h:outputText value="#{client.username}" />
                 <!--Falta validar o formato-->
             </p:column>
 
-            <p:column headerText="Name">
-                <h:outputText value="#{student.name}" />
+            <p:column headerText="Contact Name">
+                <h:outputText value="#{client.contactName}" />
             </p:column>
 
-            <p:column headerText="Email">
-                <h:outputText value="#{student.email}" />
+            <p:column headerText="Address">
+                <h:outputText value="#{client.address}" />
             </p:column>
 
-            <p:column headerText="Course">
-                <h:outputText value="#{student.courseName}" />
+            <p:column headerText="Company Name">
+                <h:outputText value="#{client.companyName}" />
             </p:column>
 
             <p:column headerText="Actions">
                 <h:form>
                     <h:commandLink value="Details" action="admin_students_details?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentStudent}" value="#{student}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{client}" />
                     </h:commandLink>
                     &nbsp;
                     <h:commandLink value="Update" action="admin_students_update?faces-redirect=true">
-                        <f:setPropertyActionListener target="#{administratorManager.currentStudent}" value="#{student}" />
+                        <f:setPropertyActionListener target="#{administratorManager.currentUser}" value="#{client}" />
                     </h:commandLink>
                     &nbsp;
-                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeStudent}">
-                        <f:param name="deleteStudentId" id="deleteStudentId" value="#{student.username}" />
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeClient}">
+                        <f:param name="deleteClientId" id="deleteClientId" value="#{client.username}" />
                     </h:commandLink>
                 </h:form>
             </p:column>
@@ -52,6 +52,8 @@
         </p:dataTable>
         <br/>
         <br/>
+
+        <!--
         <h3>COURSES</h3>
         <p:dataTable
             var="course"
@@ -73,8 +75,8 @@
                     </h:commandLink>
                 </h:form>
             </p:column>
-        </p:dataTable>
-        <h:link value="New student" outcome="admin_students_create"/>        <h:messages errorStyle="color: red" />
+        </p:dataTable> -->
+        <h:link value="Register Client" outcome="admin_clients_create"/>        <h:messages errorStyle="color: red" />
     </h:body>
 </html>
 

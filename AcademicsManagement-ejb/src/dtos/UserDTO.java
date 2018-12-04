@@ -17,7 +17,13 @@ public class UserDTO implements DTO {
         this.name = name;
         this.email = email;
     }
-    
+
+    public UserDTO(String username, String password, String contactName) {
+        this.username = username;
+        this.password = password;
+        this.name = contactName;
+    }
+
     @Override
     public void clear() {
         username = null;

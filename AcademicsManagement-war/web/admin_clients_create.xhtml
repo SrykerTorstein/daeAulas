@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Software Config Management - Register Client</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3">
+                    <!-- Problem is definetly here -->
+                    <!-- Do: copy code from update, replace with newStudent -->
+                    <h:outputLabel for="username" value="Username: " />
+                    <h:inputText
+                        id="username"
+                        size="20"
+                        required="true"
+                        requiredMessage="Error: Username cannot be empty."
+                        value="#{administratorManager.newClient.username}"
+                        >
+                        <f:validator validatorId="usernameValidator" />
+                    </h:inputText>
+                    <h:message for="username" errorStyle="color: red" />
+                    <h:outputLabel for="password" value="Password: " />
+                    <h:inputSecret
+                        id="password"
+                        size="20"
+                        required="true"
+                        requiredMessage="Error: Password cannot be empty."
+                        value="#{administratorManager.newClient.password}"/>
+                    <h:message for="password" errorStyle="color: red" />
+
+                    <h:outputLabel for="contactName" value="Contact Name: " />
+                    <h:inputText
+                        id="contactName"
+                        size="52"
+                        required="true"
+                        requiredMessage="Error: Name cannot be empty."
+                        value="#{administratorManager.newClient.name}" />
+                    <h:message for="contactName" errorStyle="color: red" />
+
+                    <h:outputLabel for="address" value="Email: " />
+                    <h:inputText
+                        id="address"
+                        size="52"
+                        required="true"
+                        requiredMessage="Error: Address cannot be empty."
+                        value="#{administratorManager.newClient.address}" >
+                    </h:inputText>
+                    <h:message for="address" errorStyle="color: red" />
+
+                    <h:outputLabel for="companyName" value="Company Name: " />
+                    <h:inputText
+                        id="companyName"
+                        size="52"
+                        required="true"
+                        requiredMessage="Error: Company Name cannot be empty."
+                        value="#{administratorManager.newClient.companyName}" >
+                    </h:inputText>
+                    <h:message for="companyName" errorStyle="color: red" />
+                    <br></br>
+
+                    <h:commandButton
+                        id="submit"
+                        value="Create"
+                        action="#{administratorManager.createStudent}"
+                        binding="#{administratorManager.component}"
+                    />
+                    <!--binding="#{administratorManager.component}"-->
+                    <h:message for="submit" style="color: red" />
+                </h:panelGrid>
+            </h:form>
+        </h:body>
+    </html>
+

@@ -1,10 +1,12 @@
 package web;
 
-import dtos.CourseDTO;
-import dtos.StudentDTO;
+import dtos.*;
+import ejbs.AdministratorBean;
+import ejbs.ClientBean;
 import ejbs.CourseBean;
 import ejbs.StudentBean;
 import entities.Subject;
+import entities.User;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -21,22 +23,24 @@ import java.util.logging.Logger;
 public class AdministratorManager {
     
     @EJB
-    private StudentBean studentBean;
+    private AdministratorBean administratorBean;
     @EJB
-    private CourseBean courseBean;
+    private ClientBean clientBean;
     
     private static final Logger logger = Logger.getLogger("web.AdministratorManager");
     
     private UIComponent component;
     
-    private StudentDTO newStudent;
-    private StudentDTO currentStudent;
+    private UserDTO newUser;
+    private UserDTO currentUser;
+
     //Problem: Admin manager not being instantiated!
     public AdministratorManager() {
-        newStudent= new StudentDTO();
-        currentStudent = new StudentDTO();
+        newUser = new UserDTO();
+        currentUser = new UserDTO();
     }
 
+    /*
     /////////////// STUDENTS /////////////////
     public String createStudent() {
         try {
@@ -131,6 +135,56 @@ public class AdministratorManager {
 
     public void setCurrentStudent(StudentDTO currentStudent) {
         this.currentStudent = currentStudent;
+    }
+
+    */
+
+    //CLIENTS
+    public String createClient() {
+        try {
+            clientBean.create((ClientDTO) newUser);
+            newUser.clear();
+        } catch (EJBException e) {
+            FacesExceptionHandler.handleException(e, e.getMessage(), component, logger);
+            return "admin_clients_create";
+        } catch (Exception e) {
+            logger.warning("Unexpected error. Try again latter!");
+            return "admin_clients_create";
+        }
+        return "index?faces-redirect=true";
+    }
+
+    public List<ClientDTO> getAllClients() {
+        try {
+            return clientBean.getAll();
+        } catch (EJBException e) {
+            logger.warning(e.getMessage());
+            return null;
+        } catch (Exception e) {
+            logger.warning("Unexpected error. Try again latter!");
+            return null;
+        }
+    }
+
+    public String updateClient() {
+        try {
+            clientBean.update((ClientDTO)currentUser);
+            currentUser.clear();
+            return "index?faces-redirect=true";
+        } catch (Exception e) {
+            logger.warning(e.getMessage());
+        }
+        return "admin_clients_update";
+    }
+
+    public void removeClient(ActionEvent event) {
+        try {
+            UIParameter param = (UIParameter) event.getComponent().findComponent("deleteClientId");
+            String id = param.getValue().toString();
+            clientBean.remove(id);
+        } catch (Exception e) {
+            logger.warning(e.getMessage());
+        }
     }
 
     public UIComponent getComponent() {
